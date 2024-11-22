@@ -1,0 +1,1 @@
+SELECT DISTINCT date_or FROM pizza.orders

@@ -1,0 +1,1 @@
+SELECT DISTINCT rep_yaer, rep_month FROM pizza.Otchet

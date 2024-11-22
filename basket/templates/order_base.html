@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="static/bootstrap.css" type="text/css" rel="stylesheet">
+
+    <script src="static/bootstrap.js"></script>
+    <title>Orders</title>
+    <style>
+    .overlay {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7); /* Прозрачно-белая заливка */
+    z-index: -1; /* Устанавливаем отрицательный z-index для размещения на заднем плане */
+}
+</style>
+</head>
+<body> <!-- Прозрачно-белая заливка -->
+    <div style="text-align:center">
+        <a href="/"> В главное меню</a></br>
+        {% if message %}
+            <p>{{ message }}</p>
+        {% endif %}
+    </div>
+    {% block index %} {% endblock %}
+</body>
+</html>

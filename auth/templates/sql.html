@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SQL</title>
+    <link type="text/css" rel="stylesheet" href="/static/main.css">
+
+    <style>
+        .btn-home {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            background-color: black;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            height: 50vh;
+        }
+
+        .btn-center button {
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #a66bbe;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+
+        h1 {
+            font-size: 48px;
+            text-align: center;
+            margin-top: calc(50vh / 2 - 48px);
+            color: #333333;
+            background-color: #f2f2f2;
+        padding: 20px;
+        opacity: 0.8; /* прозрачность */
+          margin: 0 10px;
+
+        }
+    </style>
+</head>
+<body>
+
+<h1>Запросы</h1>
+<a href="/" class="btn-home">Главная</a>
+<div class="btn-center">
+    <form action="/auth/sql/all/">
+        <button type="submit">Запрос без параметризации</button>
+    </form>
+    <form action="/auth/sql/id/">
+        <button type="submit">Запрос с параметризацией</button>
+    </form>
+</div>
+</body>
+</html>

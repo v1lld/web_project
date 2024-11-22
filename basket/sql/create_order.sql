@@ -1,0 +1,1 @@
+INSERT INTO orders(id_user, total_sum, date_or, orders_pos, id_kyrer) VALUES($user_id, $total_summa, CURDATE(), $orders_poss, $id_qq)

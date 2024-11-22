@@ -1,0 +1,1 @@
+UPDATE basket SET kol_prod = $n_left where idmenu = $item_id

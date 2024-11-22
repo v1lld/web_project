@@ -1,0 +1,19 @@
+{% extends 'order_base.html' %}
+
+{% block index %}
+
+{% import 'orders_comp.html' as components %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <h2>Все заказы</h2>
+            {% if not orders %}
+                <p>Нет заказов</p>
+            {% else %}
+                {{ components.render_content(orders=orders, unique_orders=unique_orders, ses=ses) }}
+            {% endif %}
+        </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,6 @@
+{
+  "klient": ["log_app", "basket_index" ,"buy_order","sql_index_handler_rab", "sql_request_handler_klient", "sql_index_handler_prod", "sql_index_handler_us", "buy_orders_delite", "index"],
+  "admin": ["log_app", "auth_app", "otch_app", "index"],
+  "kasir": ["log_app", "auth_ss_app", "sql_index_handler_rab", "sql_index_handler_prod", "sql_index_handler_kas", "buy_order", "buy_orders", "buy_orders_time", "sql_request_handler_kasir", "sql_request_handler_klient", "index"],
+  "director": ["log_app", "main_sql_handler", "read_handler", "read_del_handler", "main_sql_handler_red","read_del_handlerii", "index"]
+}

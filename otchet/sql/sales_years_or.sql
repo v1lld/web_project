@@ -1,0 +1,1 @@
+SELECT DISTINCT date_god FROM pizza.otchet_sum

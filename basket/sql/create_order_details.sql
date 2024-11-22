@@ -1,0 +1,1 @@
+INSERT INTO order_details VALUES(NULL, $order_id, $item_id, $total, $price, $id_user, $name_piz);

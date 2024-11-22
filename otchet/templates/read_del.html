@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Поставки</title>
+    <link type="text/css" rel="stylesheet" href="/static/main.css">
+    <style>
+      .btn-home {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        font-size: 24px;
+        font-weight: bold;
+        background-color: black;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-home:hover {
+        background-color: #333;
+      }
+      /* ... (ваш текущий CSS-код) ... */
+.custom-select {
+    padding: 10px; /* Увеличить внутренние отступы */
+    font-size: 16px; /* Установить размер шрифта */
+    border: 2px solid #ccc; /* Добавить границу */
+    border-radius: 5px; /* Добавить скругленные углы */
+}
+
+.custom-button {
+    font-size: 20px; /* Увеличить размер шрифта */
+    padding: 15px 25px; /* Увеличить отступы кнопки */
+    background-color: #008CBA; /* Установить цвет фона */
+    color: white; /* Установить цвет текста */
+    border: none; /* Убрать границу */
+    border-radius: 5px; /* Добавить скругленные углы */
+    cursor: pointer;
+}
+
+.custom-button:hover {
+    background-color: #005f6b; /* Изменить цвет фона при наведении */
+}
+/* ... (ваш текущий CSS-код) ... */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* This ensures the container takes up the full height of the viewport */
+}
+
+
+    </style>
+</head>
+<body>
+  <div class="container">
+
+ {% if massage == "1" %}
+<form method="get" action="/otch/sql/read/sales/" style="text-align:center">
+     <a href="/" class="btn-home">Главная</a>  <br/>
+    <select name="mes" required class="custom-select">
+        {% for item in item['result'] %}
+        <option>{{item['rep_yaer']}}-{{item['rep_month']}}</option>
+        {% endfor %}
+    </select>
+    <button type="submit" class="custom-button">Получить информацию</button>
+    </form>
+ {% endif %}
+ {% if massage == "2" %}
+<form method="get" action="/otch/sql/read/sales_or/" style="text-align:center">
+    <a href="/" class="btn-home">Главная</a> <br/>
+        <select name="god" required class="custom-select">
+        {% for item in item['result'] %}
+        <option>{{item['date_god']}}</option>
+        {% endfor %}
+    </select>
+    <button type="submit" class="custom-button">Получить информацию</button>
+    </form>
+    {% endif %}
+  </div>
+</body>
+</html>

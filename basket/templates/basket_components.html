@@ -1,0 +1,27 @@
+{% macro render_content(items) %}
+{% for item in items %}
+<div style="margin-bottom: 20px; border: 1px solid #e8e8e8; padding: 10px; border-radius: 5px;"> <!-- Added border and padding for stylish border box -->
+  <div>Имя товара: {{ item["menu_name_bludo"] }}</div>
+  <div>Количество: {{ item["kol_prod"] }}</div>
+  <div>Цена: {{ item["menu_chec_bludo"] }}</div>
+  <form action="" method="post">
+      <input type="hidden" name="item_id" value="{{ item['idmenu'] }}">
+      <input type="hidden" name="item_name" value="{{ item['menu_name_bludo'] }}">
+      <input type="hidden" name="item_price" value="{{ item['menu_chec_bludo'] }}">
+      <div>Кол-во товаров для покупки</div>
+      <input type="number" name="item_amount" placeholder="Кол-во товаров для покупки" min="1" value="1">
+    <button type="submit"> Добавить в корзину </button>
+  </form>
+</div>
+{% endfor %}
+{% endmacro %}
+
+{% macro render_basket(basket) %}
+{% for item_id, item_data in basket.items() %}
+<div style="margin-bottom: 20px; border: 1px solid #e8e8e8; padding: 10px; border-radius: 5px;"> <!-- Added border and padding for stylish border box -->
+    <div>{{ item_data['menu_name_bludo'] }}</div>
+  <div>Количество: {{ item_data['count'] }}</div>
+  <div>Цена: {{ item_data['menu_chec_bludo'] }}</div>
+</div>
+{% endfor %}
+{% endmacro %}

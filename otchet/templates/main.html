@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Отчёт</title>
+     <link type="text/css" rel="stylesheet" href="/static/main.css">
+ <style type="text/css">
+  #container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+  }
+
+  button {
+   padding: 10px 20px;
+   font-size: 18px;
+   margin-bottom: 20px;
+  }
+ </style>
+</head>
+<body>
+     <div id="container">
+ {% if message != "director" %}
+  <form action="/otch/sql/create_choice/">
+    <button type="submit">Создание отчета</button>
+  </form>
+  <form action="/otch/sql/read_choice/">
+    <button type="submit">Просмотр отчета</button>
+  </form>
+  {% else %}
+    <form action="/otch/sql/read_choice/">
+    <button type="submit">Просмотр отчета</button>
+  </form>
+  {% endif %}
+          </div>
+</body>
+</html>
+
+
+

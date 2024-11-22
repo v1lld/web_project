@@ -1,0 +1,47 @@
+{% macro render_content(orders, unique_orders, ses) %}
+
+  {% for unique_order in unique_orders %}
+  {% if (ses == "kasir" and unique_order["orders_pos"] != "Доставлен") or ses == "klient" %}
+    <div style="border: 1px solid #000; padding: 10px; margin-bottom: 10px;" >
+
+      <div style="font-weight: bold;">Заказ №{{ unique_order["id_orders"] }}</div>
+      {% for order in orders %}
+
+        {% if order["id_orders"] == unique_order["id_orders"] %}
+
+          <div style="border: 1px solid #ccc; padding: 5px; margin-top: 5px;" >
+            <div>Имя товара: {{ order["name_piz"] }}</div>
+            <div>Количество: {{ order["total"] }}</div>
+            <div>Цена: {{ order["price"] * order["total"] }}</div>
+          </div>
+
+      {% endif %}
+      {% endfor %}
+      <div>Общая сумма: {{ unique_order["total_sum"] }}</div>
+      <div>Статус: {{ unique_order["orders_pos"] }}</div>
+
+      {% if ses == "kasir" and unique_order["orders_pos"] == "Готовим" %}
+        <form action="/basket/orders" method="post">
+          <input type="hidden" id="orderIdInput" name="order_number" min="1" value="{{ unique_order['id_orders'] }}">
+       <button type="submit" style="margin-top: 5px;">Подтвердить доставку</button>
+        </form>
+      {% else %}
+        {% if ses == "kasir" %}
+        <form action="/basket/orders_time" method="post">
+          <input type="hidden" id="orderIdInputt" name="order_number_t" min="1" value="{{ unique_order['id_orders'] }}">
+       <button type="submit" style="margin-top: 5px;">Назначить курьера</button>
+        </form>
+        {% endif %}
+      {% endif %}
+        {% if ses == "klient" and unique_order["orders_pos"] != "Доставлен" %}
+        <form action="/basket/orders_delite" method="post">
+          <input type="hidden" id="orderIdInput_del" name="order_number_del" min="1" value="{{ unique_order['id_orders'] }}">
+       <button type="submit" style="margin-top: 5px;">Отменить заказ</button>
+        </form>
+        {% endif %}
+    </div>
+    {% endif %}
+{% endfor %}
+
+
+{% endmacro %}

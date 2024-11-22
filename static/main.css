@@ -1,0 +1,33 @@
+body {
+        background: #f5f5f5; /* цвет фона */
+        background-image: url("https://i.artfile.ru/1920x1080_1534610_[www.ArtFile.ru].jpg"); /* путь к фото */
+
+
+        }
+
+    header {
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+
+    h1 {
+        margin: 90;
+    }
+
+    nav {
+        margin-top: 20px;
+    }
+
+    nav a {
+        margin-right: 10px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 20px;
+    }
